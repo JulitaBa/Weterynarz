@@ -1,0 +1,44 @@
+.title {
+    text-align: center;
+    margin: 80px;
+    border: 10px dashed #A1A728;
+    font-size: 50px;
+    font-family: Arial Black;
+}
+body {
+        background-image: url('https://www.centralbarkusa.com/wp-content/uploads/2013/10/doctor-dog.jpg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-color: transparent;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #2E28A7;
+  font-family: Calibri;
+  opacity: .8;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #171386;
+  display: block;
+}
+
+.active {
+  background-color: #A1A728;
+
