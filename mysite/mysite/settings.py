@@ -127,5 +127,5 @@ STATIC_URL = '/static/'
 EMAIL_HOST = 's23.mydevil.net'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@krt29.pl'
-EMAIL_HOST_PASSWORD = 'Django30'
+EMAIL_HOST_PASSWORD = 'hasło'
 EMAIL_USE_TLS = True
