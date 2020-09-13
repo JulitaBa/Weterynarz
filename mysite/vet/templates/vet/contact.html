@@ -1,0 +1,12 @@
+{% if info %}
+{{ info }}
+
+{% else %}
+
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Dodaj</button>
+</form>
+
+{% endif %}
