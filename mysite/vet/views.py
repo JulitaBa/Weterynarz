@@ -7,6 +7,8 @@ from .forms import MessageForm
 # Create your views here.
 def vet(request):
     return render(request, 'vet/vet.html')
+def onas(request):
+    return render(request, 'vet/onas.html')
 
 
 def sendMessage(request):

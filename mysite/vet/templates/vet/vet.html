@@ -5,15 +5,26 @@
     <link rel="stylesheet" href="{% static 'css/vet.css' %}">
     <meta charset="UTF-8">
     <title>Przychodnia dla Zwierząt</title>
-    <style>
 
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="Dariusz Mularczyk, Darek Mylarczyk, Mularczyk, lecznica weterynaryjna, lecznica dla zwierząt,
+    weterynarz, lekarz weterynarii, przychodnia dla zwierząt, szczepienia dla zwierząt, lecznica dla zwierzat, Praga Południe,
+    Lecznica dla zwierząt Gocław, Poligonowa, paszport dla zwierząt, czipowanie zwierząt, szczepienia zwierząt,
+    leczenie zwierząt,lecznica dla zwierząt Warszawa, lecznica Warszawa, lecznica dla zwierząt, Praga, lecznica Praga">
+    <meta name="Description" content="PRZYCHODNIA DLA ZWIERZĄT (Praga Południe, Gocław, Poligonowa) - Lecznica oferuje usługi w zakresie: szczepienia zwierząt,
+    czipowanie zwierząt, leczenie zwierząt, paszporty dla zwierząt, diety, rtg, ekg, zabiegi pielęgnacyjne, leczenie ortopedyczne, lecznie chirurgiczne,
+    badania laboratoryjne. ">
+
 </head>
 <body>
-
+<div class="content">
+    <p>
+        <span id="name">Przychodnia dla Zwierząt</span>
+        <span style="float:right;">ul. Poligonowa 1 Warszawa - Gocław</span>
+    </p>
     <ul>
-      <li><a class="active" href="#">Home</a></li>
-      <li><a href="#">O nas</a></li>
+      <li><a class="active" href="{% url 'vet' %}">Home</a></li>
+      <li><a href="{% url 'onas' %}">O nas</a></li>
       <li><a href="#">Leczenie</a>
         <ul>
             <li><a href="">Internistyczne</a></li>
@@ -22,10 +33,10 @@
             <li><a href="">Ortopedyczne</a></li>
         </ul>
       </li>
-      <li><a href="#">Badania laboratoryjne</a></li>
+      <li><a href="#" style="line-height:0.9">Badania laboratoryjne</a></li>
       <li><a href="#">RTG EKG</a></li>
       <li><a href="#">Pielęgnacja</a></li>
-      <li><a href="#">Kontakt</a></li>
+      <li><a href="{% url 'sendMessage' %}">Kontakt</a></li>
       <li><a href="#">Inne</a>
         <ul>
             <li><a href="">Paszporty</a></li>
@@ -34,6 +45,12 @@
         </ul>
       </li>
     </ul>
-<div class="title">PRZYCHODNIA DLA ZWIERZĄT</div>
+    <div style="display: inline-block;"> <img src="{% static 'css/comic_vet.jpg' %}" alt="Pies idący do lecznicy"></div>
+
+    {% block content %}
+    {% endblock %}
+
+
+
 </body>
 </html>
