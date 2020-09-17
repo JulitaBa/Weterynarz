@@ -9,6 +9,10 @@ def vet(request):
     return render(request, 'vet/vet.html')
 def onas(request):
     return render(request, 'vet/onas.html')
+def internistyczne(request):
+    return render(request, 'vet/internistyczne.html')
+def profilaktyczne(request):
+    return render(request, 'vet/profilaktyczne.html')
 
 
 def sendMessage(request):
