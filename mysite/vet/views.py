@@ -41,8 +41,10 @@ def news_change(request, pk):
         form = NewsForm(instance=post)
     return render(request, 'vet/news_change.html', {'form': form})
 
-
-
+def news_delete(request, pk):
+    post = get_object_or_404(News, pk=pk)
+    post.delete()
+    return redirect('news')
 
 def onas(request):
     return render(request, 'vet/onas.html')

@@ -87,6 +87,7 @@ body {
     padding-bottom:50px;
     min-height:300px;
 }
+
 .title {
     background-color: #f2f2f2;
     color:#2655e1; min-height:2em;
@@ -164,6 +165,9 @@ body {
 }
 .footer div a {color: white; text-decoration: none;}
 .footer div a:hover {color: lightblue;}
+
+
+
 
 /* -----RESPONSYWNOŚĆ ------*/
 @media screen and (max-width: 700px) {

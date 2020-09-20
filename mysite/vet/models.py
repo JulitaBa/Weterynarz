@@ -13,8 +13,8 @@ class Message(models.Model):
 class News(models.Model):
     objects = None
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    title = models.CharField('Tytuł',max_length=200)
+    text = models.TextField('Treść informacji')
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
