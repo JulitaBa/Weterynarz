@@ -47,6 +47,7 @@ body {
   margin: 0;
 }
 
+
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #2655e1;
 }
@@ -87,7 +88,7 @@ body {
     min-height:300px;
 }
 .title {
-    background-color: /*#2655e1;*/#f2f2f2;
+    background-color: #f2f2f2;
     color:#2655e1; min-height:2em;
     justify-content: center;
     display: flex;

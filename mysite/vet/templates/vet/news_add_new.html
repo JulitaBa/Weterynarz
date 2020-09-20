@@ -1,0 +1,14 @@
+{% extends 'vet/vet.html' %}
+{% block content %}
+
+<div class="title"><h4>AKTUALNOŚCI</h4></div>
+<h3 style="text-align: center">Dodaj nowy wpis do aktualności:</h3>
+
+<form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}
+
+

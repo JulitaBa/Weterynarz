@@ -1,12 +1,49 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import News
+from django.utils import timezone
 from django.core.mail import send_mail, EmailMessage
-
-from .forms import MessageForm
+from .forms import MessageForm, NewsForm
 
 
 # Create your views here.
-def vet(request):
-    return render(request, 'vet/vet.html')
+def news(request):
+    posts = News.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'vet/news.html', {'posts': posts})
+
+def news_edit(request, pk):
+    post = get_object_or_404(News, pk=pk)
+    return render(request, 'vet/news_edit.html', {'post': post})
+
+def news_add_new(request):
+    if request.method == "POST":
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('news')
+    else:
+        form = NewsForm()
+    return render(request, 'vet/news_add_new.html', {'form': form})
+
+def news_change(request, pk):
+    post = get_object_or_404(News, pk=pk)
+    if request.method == "POST":
+        form = NewsForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('news_edit', pk=post.pk)
+    else:
+        form = NewsForm(instance=post)
+    return render(request, 'vet/news_change.html', {'form': form})
+
+
+
+
 def onas(request):
     return render(request, 'vet/onas.html')
 def internistyczne(request):

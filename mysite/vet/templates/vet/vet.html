@@ -20,13 +20,19 @@
 <body>
 
 <div class="header">
-    <a href="{% url 'vet' %}">
+    <a href="{% url 'news' %}">
         <img src="{% static 'css/logo-2.jpg' %}"  alt="baner" width=800px style="margin-top: 80px; margin-bottom:80px;">
     </a>
 </div>
 
 <div class="navbar">
-  <a href="{% url 'vet' %}" style="background-color: #2655e1">Aktualności</a>
+<!--    <div class="dropdown">-->
+<!--        <button class="dropbtn"><a href="{% url 'news' %}">Aktualności</a></button>-->
+<!--    </div>-->
+<!--    <div class="dropdown-content">-->
+<!--         <a href="{% url 'news_add_new' %}">Dodaj info</a>-->
+<!--    </div>-->
+  <a href="{% url 'news' %}" style="background-color: #2655e1">Aktualności</a>
   <a href="{% url 'onas' %}">O nas</a>
   <div class="dropdown">
     <button class="dropbtn">Leczenie
@@ -51,31 +57,18 @@
         <a href="{%url 'diety'%}">Diety</a>
       </div>
   </div>
+    {% if user.is_authenticated %}
+    <a href="{%url 'news_add_new'%}" style="float:right">Dodaj info</a>
+    {% endif %}
+
+
 </div>
 
 <div class="main">
     {% block content %}
-
-    <div class="title"><h4>AKTUALNOŚCI</h4></div>
-
-    <p>Szanowni Państwo!</p>
-    <p>W związku z rozprzestrzenianiem się wirusa <span style="color:red">SARS-CoV-2</span> i troską o bezpieczeństwo oraz zdrowie Państwa, a także
-        pracowników Przychodni bardzo <b>prosimy o stosowanie się do poniższych zasad</b>:</p>
-    <ul>
-        <li>telefoniczne umawianie się na wizyty:
-        <ul>
-            <li>tel. 22 870 44 11,</li>
-            <li>tel.:/fax: 22 870 44 14</li>
-        </ul>
-        </li>
-        <li>zakrywanie ust oraz nosa podczas pobytu w Przychodni</li>
-        <li>przebywanie jednej osoby w poczekalni i gabinecie</li>
-    </ul><br>
-    <p>Dziękujemy za wyrozumiałość!</p>
     {% endblock %}
 </div>
 
-<div class="slider"></div>
 
 <div class="footer">
         <div>
