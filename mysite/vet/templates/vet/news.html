@@ -1,0 +1,18 @@
+{% extends 'vet/vet.html' %}
+{% block content %}
+
+<div class="title"><h4>AKTUALNOŚCI</h4></div>
+
+    {% for post in posts %}
+
+        <h2 style="color: #006750">
+            {% if user.is_authenticated %}<a href="{%url 'news_edit' pk=post.pk %}">{% endif %}
+            {{ post.title }}
+            {% if user.is_authenticated %}</a>
+            {% endif %}</h2>
+        <p style="font-size: 16px;">{{ post.text|linebreaksbr }}</p>
+
+    {% endfor %}
+
+{% endblock %}
+
