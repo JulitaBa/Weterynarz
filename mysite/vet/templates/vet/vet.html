@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/vet.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Przychodnia dla Zwierząt</title>
+
+    <meta name="Keywords" content="Dariusz Mularczyk, Darek Mylarczyk, Mularczyk, lecznica weterynaryjna, lecznica dla zwierząt,
+    weterynarz, lekarz weterynarii, przychodnia dla zwierząt, szczepienia dla zwierząt, lecznica dla zwierzat, Praga Południe,
+    Lecznica dla zwierząt Gocław, Poligonowa, paszport dla zwierząt, czipowanie zwierząt, szczepienia zwierząt,
+    leczenie zwierząt,lecznica dla zwierząt Warszawa, lecznica Warszawa, lecznica dla zwierząt, Praga, lecznica Praga">
+    <meta name="Description" content="PRZYCHODNIA DLA ZWIERZĄT (Praga Południe, Gocław, Poligonowa) - Lecznica oferuje usługi w zakresie: szczepienia zwierząt,
+    czipowanie zwierząt, leczenie zwierząt, paszporty dla zwierząt, diety, rtg, ekg, zabiegi pielęgnacyjne, leczenie ortopedyczne, lecznie chirurgiczne,
+    badania laboratoryjne. ">
+
+</head>
+<body>
+
+<div class="header">
+    <a href="{% url 'news' %}">
+        <img src="{% static 'css/logo-2.jpg' %}"  alt="baner" width=800px style="margin-top: 80px; margin-bottom:80px;">
+    </a>
+</div>
+
+<div class="navbar">
+  <a href="{% url 'news' %}" style="background-color: #2655e1">Aktualności</a>
+  <a href="{% url 'onas' %}">O nas</a>
+  <div class="dropdown">
+    <button class="dropbtn">Leczenie
+    </button>
+    <div class="dropdown-content">
+      <a href="{%url 'internistyczne'%}">Internistyczne</a>
+      <a href="{%url 'profilaktyczne'%}">Profilaktyczne</a>
+      <a href="{%url 'chirurgiczne'%}">Chirurgiczne</a>
+      <a href="{%url 'ortopedyczne'%}">Ortopedyczne</a>
+	</div>
+  </div>
+  <a href="{%url 'badania_lab'%}">Badania laboratoryjne</a>
+  <a href="{%url 'rtg_ekg'%}">RTG EKG</a>
+  <a href="{% url 'sendMessage' %}">Kontakt</a>
+  <a href="{%url 'pielegnacja'%}">Pielęgnacja</a>
+  <div class="dropdown">
+      <button class="dropbtn">Inne
+      </button>
+      <div class="dropdown-content">
+        <a href="{%url 'paszporty'%}">Paszporty</a>
+        <a href="{%url 'czipowanie'%}">Czipowanie</a>
+        <a href="{%url 'diety'%}">Diety</a>
+      </div>
+  </div>
+    {% if user.is_authenticated %}
+    <a href="{%url 'news_add_new'%}" style="float:right">Dodaj info</a>
+    {% endif %}
+
+
+</div>
+
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<div class="footer">
+        <div>
+            <p>ul. Poligonowa 1<br>Warszawa - Gocław</p>
+            <p>tel.: 22 870 44 11<br>tel.:/fax: 22 870 44 14</p>
+        </div>
+        <div>
+            <p><b>Godziny otwarcia:</b></p>
+            <p>Poniedziałek-piątek:09:00 - 22:00<br>
+               Sobota:10:00 - 18:00<br>
+               Niedziela:10:00 - 15:00</p>
+        </div>
+        <div style="padding-left:60px;">
+            <p><b>Adres e-mail:</b></p>
+            <p>poligonowa@gmail.com</p>
+        </div>
+
+</div>
+
+</body>
+</html>

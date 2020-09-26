@@ -1,0 +1,14 @@
+{% extends 'vet/vet.html' %}
+{% block content %}
+
+<div class="title"><h4>AKTUALNOŚCI</h4></div>
+
+
+<h2>{{ post.title }}</h2>
+<p>{{ post.text|linebreaksbr }}</p>
+
+<span style="button_news"><a href="{% url 'news_change' pk=post.pk %}">Edytuj</a></span>
+<span style="button_news"><a href="{% url 'news_delete' pk=post.pk %}">Usuń</a></span>
+
+
+{% endblock %}
