@@ -1,0 +1,13 @@
+{% extends 'vet/vet.html' %}
+{% block content %}
+
+<div class="title"><h4>AKTUALNOŚCI</h4></div>
+
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <div style="text-align:center;">
+        <button type="submit" class="button">Zapisz</button>
+        </div>
+    </form>
+
+{% endblock %}
