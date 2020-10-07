@@ -1,11 +1,10 @@
 {% extends 'vet/vet.html' %}
 {% block content %}
-<div id="container">
 
 <div class="title"><h4>KONTAKT</h4></div>
 
 
-        <div id="address">
+        <div class="address">
             <b>Przychodnia dla Zwierząt</b> <br> <br>
             ul. Poligonowa 1 <br>
             Warszawa <br>
@@ -23,36 +22,36 @@
         </div>
 
 
-        <div id="contact-form">
+        <div class="contact-form">
+            <p style="text-align:center;"><b>Napisz do nas!</b></p>
 
-<!--            {% if info %}-->
-<!--            <script>-->
-<!--            alert('{{ info }}');-->
-<!--            </script>-->
-
-<!--            {% else %}-->
-
-            <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
+            <form method="POST" style="text-align:center;">
+                {% csrf_token %}
+                {{ form.as_p }}
 
                 <div>
-                    <input type="checkbox" value="true" style="float:left;"/>
-                    <label style="display: block; margin-bottom: 10px;">
+                    <input type="checkbox" style="float:left;" id="myCheck" onclick="checkIt(this)">
+                    <label style="display: block; margin-bottom: 10px; text-align:left;" for="myCheck">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w formularzu dla potrzeb niezbędnych
                         do kontaktu ze mną (zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r.
                         w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu
-                        takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych) </label>
+                        takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych) </label><br>
                 </div>
 
-                    <button type="submit" class="button;">Wyślij wiadomość</button>
-
-
-
-            </form>
-
-            {% endif %}
+                <div style="text-align:center;">
+                    <button class="button" type=submit id="sbm" disabled >Wyślij wiadomość</button>
+                </div>
+        </form>
         </div>
-    </div>
+
+<script type="text/javascript">
+    function checkIt(ok) {
+        if (ok.checked) {
+        document.getElementById("sbm").disabled =false;
+        }
+        else {
+        document.getElementById("sbm").disabled = true;}
+        }
+</script>
 
 {% endblock %}

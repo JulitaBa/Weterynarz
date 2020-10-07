@@ -25,6 +25,14 @@ body {
     color: white;
 }
 
+.button:disabled {
+    opacity: 0.6;
+    width: 200px;
+    font-size: 16px;
+    cursor: not-allowed;
+
+}
+
 .header {
   padding: 60px;
   text-align: center;
@@ -123,13 +131,8 @@ body {
     background-color:#006750;
     }
 
-/*Zakładka Kontakt*/
-     #container
-         {
-            width: 100%;
-         }
-     #address
-     {
+/*-------ZAKŁADKA KONTAKT----------------*/
+.address {
         float: left;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -142,8 +145,7 @@ body {
         font-size: 16px;
      }
 
-     #map
-     {
+#map {
         float: left;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -153,16 +155,16 @@ body {
         margin-left: 1%;
      }
 
-     #contact-form
-     {
+.contact-form {
         clear: both;
-        height: 450px;
+        height: 500px;
         width: 100%;
         margin-left: 0;
         margin-right: 0;
         background-color: #F2F2F2;
-        padding: 25px 25px;
-        text-align: center;
+        padding-top:10px;
+        padding-left: 35px;
+        padding-right: 35px;
         font-size: 15px;
      }
 

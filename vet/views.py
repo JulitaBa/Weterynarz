@@ -1,3 +1,4 @@
+from django.middleware import http
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import News
 from django.utils import timezone
@@ -77,16 +78,29 @@ def diety(request):
 def contact_sent(request):
     return render(request, 'vet/contact_sent.html')
 
+# def sendMessage(request):
+#     if request.method == 'GET':
+#         return render(request, 'vet/contact.html', {'form': MessageForm})
+#     else:
+#         send_mail(
+#             request.POST['subject'],
+#             request.POST['message'],
+#             request.POST['email'],
+#             ['julita.babecka@gmail.com'],)
+#         messages.add_message(request, messages.SUCCESS, "Wiadomość wysłana!", fail_silently=True)
+#         return render(request, 'vet/contact.html')
+
+
 def sendMessage(request):
-    if request.method == 'GET':
-        return render(request, 'vet/contact.html', {'form': MessageForm})
+    if request.method == "GET":
+        form = MessageForm()
     else:
-        send_mail(
-            request.POST['subject'],
-            request.POST['message'],
-            request.POST['email'],
-            ['julita.babecka@gmail.com'],)
-        messages.add_message(request, messages.SUCCESS, "Wiadomość wysłana!", fail_silently=True)
-        return render(request, 'vet/contact.html')
-
-
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            send_mail(subject, message, email, ['julita.babecka@gmail.com', email])
+            messages.add_message(request, messages.SUCCESS, "Wiadomość wysłana!", fail_silently=True)
+        form = MessageForm()
+    return render(request, 'vet/contact.html', {'form': form})
