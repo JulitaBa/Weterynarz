@@ -1,7 +1,17 @@
 {% if messages %}
     {% for message in messages %}
-        <div style="text-align: center; background-color:orange; color: white; font-size: 20px;">
+
+        <div style="text-align: center; background-color:orange; color: white; font-size: 20px; padding:10px;" id="msg_container">
             {{message}}
         </div>
+
+    <script>
+    var msg = document.getElementById("msg_container");
+
+    setTimeout(function(){
+       msg.style.display = "none";
+    }, 8000);
+    </script>
+
     {% endfor %}
 {% endif %}
